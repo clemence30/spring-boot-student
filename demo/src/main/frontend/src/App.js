@@ -59,12 +59,33 @@ const AddStudentForm = ({handleAddStudent, student, setStudent}) => {
         <label className="me-2 form-label" htmlFor="inputDob">Dob:</label>
         <input type="date" value={student.dob} name="dob" id="inputDob" onChange={(event) => setStudent({...student, dob : event.target.value })} />
       </div>
-      <button type="submit" className="btn btn-success" onClick={handleAddStudent}>Add student</button>
+      <button type="submit" className="btn btn-success">Add student</button>
       </form>
   )
 }
 
+const Student = ({student, handleDeleteStudent}) => {
+
+  return (
+    <tr>
+      <td>{student.name}</td>
+      <td>{student.email}</td>
+      <td>{student.age}</td>
+      <td>{student.dob}</td>
+      <td>
+        <button className="btn btn-danger" onClick={(event) => handleDeleteStudent(event, student.id)}>Delete</button>
+      </td>
+    </tr>
+    
+  )
+}
+
 const ListStudent = ({handleDeleteStudent, studentList}) => {
+
+  const students = 
+      studentList.map( (student, index) =>
+        <Student key={index} student={student} handleDeleteStudent={handleDeleteStudent} />)
+
   return (
     <table className="table table-striped">
       <thead>
@@ -77,19 +98,7 @@ const ListStudent = ({handleDeleteStudent, studentList}) => {
         </tr>
       </thead>
       <tbody>
-      {studentList.map( (studentProfile, index) => {
-        return (
-          <tr key={index}>
-            <td>{studentProfile.name}</td>
-            <td>{studentProfile.email}</td>
-            <td>{studentProfile.age}</td>
-            <td>{studentProfile.dob}</td>
-            <td>
-              <button className="btn btn-danger" onClick={(event) => handleDeleteStudent(event, studentProfile.id)}>Delete</button>
-            </td>
-          </tr>
-          )
-      })}
+        {students}
       </tbody>
     </table>
   )
