@@ -2,7 +2,7 @@
 
 ## Description
 
-Api rest that allows to manage a student (create, delete, update...) + frontend
+Api rest that allows to manage a student (create, delete, update...)
 
 ## Technology stack
 
