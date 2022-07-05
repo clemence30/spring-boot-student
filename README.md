@@ -2,7 +2,7 @@
 
 ## Description
 
-Api rest that allows to manage a student (create, delete, update...)
+Api rest that allows to manage students (create, delete, update...)
 
 ## Technology stack
 
@@ -15,5 +15,5 @@ Databases
   * H2 (tests)
 
 Front
-  * React Js & axios
+  * React Js & Axios
   * Bootstrap  
